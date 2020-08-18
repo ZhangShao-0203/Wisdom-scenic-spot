@@ -8,10 +8,13 @@
             <property name="suppressAllComments" value="true"></property>
             <property name="suppressDate" value="true"></property>
         </commentGenerator>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://39.102.36.100:3306/Wisdom scenic spot" userId="root" password="123"></jdbcConnection>
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://39.102.36.100:3306/Wisdom scenic spot" userId="root" password="123"></jdbcConnection>
         <javaModelGenerator targetPackage="com.wss.pojo" targetProject="src/main/java"></javaModelGenerator>
         <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"></sqlMapGenerator>
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.wss.mapper" targetProject="src/main/java"></javaClientGenerator>
-        <!--<table tableName="actor"></table>-->
+        <table tableName="public_notice">
+            <property name="my.isgen.usekeys" value="true"/>
+            <generatedKey column="nptice_id" sqlStatement="JDBC"/>
+        </table>
     </context>
 </generatorConfiguration>
