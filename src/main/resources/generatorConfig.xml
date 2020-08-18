@@ -8,6 +8,7 @@
             <property name="suppressAllComments" value="true"></property>
             <property name="suppressDate" value="true"></property>
         </commentGenerator>
+        <!--因为数据库是8.多版本 所以已经不是com.mysql.jsbc.Driver已经更新为com.mysql.cj.jdbc.Driver-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://39.102.36.100:3306/Wisdom scenic spot" userId="root" password="123"></jdbcConnection>
         <javaModelGenerator targetPackage="com.wss.pojo" targetProject="src/main/java"></javaModelGenerator>
         <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"></sqlMapGenerator>
