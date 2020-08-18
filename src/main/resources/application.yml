@@ -1,0 +1,27 @@
+server:
+  port: 8099
+#数据库连接信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.102.36.100:3306/Wisdom scenic spot
+    username: root
+    password: 123
+#配置thymeleaf
+  thymeleaf:
+    prefix: classpath:/tamplates/
+    suffix: .html
+  servlet:
+    multipart:
+    #SpringBoot单个上传文件的大小
+      maxFileSize: 200MB
+      #SpringBoot总上传文件大小
+      maxRequestSize: 200MB
+mybatis:
+#别名
+  type-aliases-package: com.wss.pojo
+#显示sql语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#加载mapper.xml
+  mapper-locations: classpath:/mappers/*.xml
