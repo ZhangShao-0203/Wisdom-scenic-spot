@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.EntityProduceMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.EntityProduce" >
+    <id column="produce_id" property="produceId" jdbcType="INTEGER" />
+    <result column="produce_name" property="produceName" jdbcType="VARCHAR" />
+    <result column="produce_price" property="producePrice" jdbcType="DECIMAL" />
+    <result column="produce_curprice" property="produceCurprice" jdbcType="DECIMAL" />
+    <result column="produce_unit" property="produceUnit" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from entity_produce
+    where produce_id = #{produceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.EntityProduce" >
+    insert into entity_produce (produce_id, produce_name, produce_price, 
+      produce_curprice, produce_unit)
+    values (#{produceId,jdbcType=INTEGER}, #{produceName,jdbcType=VARCHAR}, #{producePrice,jdbcType=DECIMAL}, 
+      #{produceCurprice,jdbcType=DECIMAL}, #{produceUnit,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.EntityProduce" >
+    update entity_produce
+    set produce_name = #{produceName,jdbcType=VARCHAR},
+      produce_price = #{producePrice,jdbcType=DECIMAL},
+      produce_curprice = #{produceCurprice,jdbcType=DECIMAL},
+      produce_unit = #{produceUnit,jdbcType=VARCHAR}
+    where produce_id = #{produceId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select produce_id, produce_name, produce_price, produce_curprice, produce_unit
+    from entity_produce
+    where produce_id = #{produceId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select produce_id, produce_name, produce_price, produce_curprice, produce_unit
+    from entity_produce
+  </select>
+</mapper>

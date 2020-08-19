@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.EntityFoodMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.EntityFood" >
+    <id column="food_id" property="foodId" jdbcType="INTEGER" />
+    <result column="food_name" property="foodName" jdbcType="VARCHAR" />
+    <result column="food_type" property="foodType" jdbcType="VARCHAR" />
+    <result column="food_price" property="foodPrice" jdbcType="DOUBLE" />
+    <result column="food_state" property="foodState" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from entity_food
+    where food_id = #{foodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.EntityFood" >
+    insert into entity_food (food_id, food_name, food_type, 
+      food_price, food_state)
+    values (#{foodId,jdbcType=INTEGER}, #{foodName,jdbcType=VARCHAR}, #{foodType,jdbcType=VARCHAR}, 
+      #{foodPrice,jdbcType=DOUBLE}, #{foodState,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.EntityFood" >
+    update entity_food
+    set food_name = #{foodName,jdbcType=VARCHAR},
+      food_type = #{foodType,jdbcType=VARCHAR},
+      food_price = #{foodPrice,jdbcType=DOUBLE},
+      food_state = #{foodState,jdbcType=VARCHAR}
+    where food_id = #{foodId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select food_id, food_name, food_type, food_price, food_state
+    from entity_food
+    where food_id = #{foodId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select food_id, food_name, food_type, food_price, food_state
+    from entity_food
+  </select>
+</mapper>

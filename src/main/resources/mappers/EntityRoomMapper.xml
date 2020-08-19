@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.EntityRoomMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.EntityRoom" >
+    <result column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="room_name" property="roomName" jdbcType="VARCHAR" />
+    <result column="room_price" property="roomPrice" jdbcType="DECIMAL" />
+    <result column="room_quantity" property="roomQuantity" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.wss.pojo.EntityRoom" >
+    insert into entity_room (room_id, room_name, room_price, 
+      room_quantity)
+    values (#{roomId,jdbcType=INTEGER}, #{roomName,jdbcType=VARCHAR}, #{roomPrice,jdbcType=DECIMAL}, 
+      #{roomQuantity,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select room_id, room_name, room_price, room_quantity
+    from entity_room
+  </select>
+</mapper>

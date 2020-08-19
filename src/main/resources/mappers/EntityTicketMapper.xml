@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.EntityTicketMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.EntityTicket" >
+    <id column="ticke_id" property="tickeId" jdbcType="INTEGER" />
+    <result column="ticket_name" property="ticketName" jdbcType="VARCHAR" />
+    <result column="ticket_price" property="ticketPrice" jdbcType="DECIMAL" />
+    <result column="ticket_curprice" property="ticketCurprice" jdbcType="DECIMAL" />
+    <result column="ticket_starttime" property="ticketStarttime" jdbcType="DATE" />
+    <result column="ticket_endtime" property="ticketEndtime" jdbcType="DATE" />
+    <result column="ticket_state" property="ticketState" jdbcType="INTEGER" />
+    <result column="ticket_quantity" property="ticketQuantity" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from entity_ticket
+    where ticke_id = #{tickeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.EntityTicket" >
+    insert into entity_ticket (ticke_id, ticket_name, ticket_price, 
+      ticket_curprice, ticket_starttime, ticket_endtime, 
+      ticket_state, ticket_quantity)
+    values (#{tickeId,jdbcType=INTEGER}, #{ticketName,jdbcType=VARCHAR}, #{ticketPrice,jdbcType=DECIMAL}, 
+      #{ticketCurprice,jdbcType=DECIMAL}, #{ticketStarttime,jdbcType=DATE}, #{ticketEndtime,jdbcType=DATE}, 
+      #{ticketState,jdbcType=INTEGER}, #{ticketQuantity,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.EntityTicket" >
+    update entity_ticket
+    set ticket_name = #{ticketName,jdbcType=VARCHAR},
+      ticket_price = #{ticketPrice,jdbcType=DECIMAL},
+      ticket_curprice = #{ticketCurprice,jdbcType=DECIMAL},
+      ticket_starttime = #{ticketStarttime,jdbcType=DATE},
+      ticket_endtime = #{ticketEndtime,jdbcType=DATE},
+      ticket_state = #{ticketState,jdbcType=INTEGER},
+      ticket_quantity = #{ticketQuantity,jdbcType=INTEGER}
+    where ticke_id = #{tickeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select ticke_id, ticket_name, ticket_price, ticket_curprice, ticket_starttime, ticket_endtime, 
+    ticket_state, ticket_quantity
+    from entity_ticket
+    where ticke_id = #{tickeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select ticke_id, ticket_name, ticket_price, ticket_curprice, ticket_starttime, ticket_endtime, 
+    ticket_state, ticket_quantity
+    from entity_ticket
+  </select>
+</mapper>

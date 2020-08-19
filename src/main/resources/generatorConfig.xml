@@ -16,6 +16,10 @@
        <!-- <table tableName="public_notice"></table>-->
         <!--<table tableName="user_admin"></table>
         <table tableName="user_tourist"></table>-->
-        <table tableName=""></table>
+        <table tableName="entity_activity"></table>
+        <table tableName="entity_produce"></table>
+        <table tableName="entity_room"></table>
+        <table tableName="entity_ticket"></table>
+        <table tableName="entity_food"></table>
     </context>
 </generatorConfiguration>
