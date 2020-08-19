@@ -12,9 +12,9 @@
     where admin_id = #{adminId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wss.pojo.UserAdmin" >
-    insert into user_admin (admin_id, admin_name, admin_tel, 
+    insert into user_admin (admin_name, admin_tel,
       admin_psw)
-    values (#{adminId,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, #{adminTel,jdbcType=VARCHAR}, 
+    values (#{adminName,jdbcType=VARCHAR}, #{adminTel,jdbcType=VARCHAR},
       #{adminPsw,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.wss.pojo.UserAdmin" >
