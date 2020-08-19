@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.UserTouristMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.UserTourist" >
+    <id column="tourist_id" property="touristId" jdbcType="INTEGER" />
+    <result column="tourist_name" property="touristName" jdbcType="VARCHAR" />
+    <result column="tourist_tel" property="touristTel" jdbcType="VARCHAR" />
+    <result column="tourist_card" property="touristCard" jdbcType="VARCHAR" />
+    <result column="tourist_psw" property="touristPsw" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_tourist
+    where tourist_id = #{touristId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.UserTourist" >
+    insert into user_tourist (tourist_name, tourist_tel,
+      tourist_card, tourist_psw)
+    values (#{touristName,jdbcType=VARCHAR}, #{touristTel,jdbcType=VARCHAR},
+      #{touristCard,jdbcType=VARCHAR}, #{touristPsw,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.UserTourist" >
+    update user_tourist
+    set tourist_name = #{touristName,jdbcType=VARCHAR},
+      tourist_tel = #{touristTel,jdbcType=VARCHAR},
+      tourist_card = #{touristCard,jdbcType=VARCHAR},
+      tourist_psw = #{touristPsw,jdbcType=VARCHAR}
+    where tourist_id = #{touristId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select tourist_id, tourist_name, tourist_tel, tourist_card, tourist_psw
+    from user_tourist
+    where tourist_id = #{touristId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select tourist_id, tourist_name, tourist_tel, tourist_card, tourist_psw
+    from user_tourist
+  </select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.UserAdminMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.UserAdmin" >
+    <id column="admin_id" property="adminId" jdbcType="INTEGER" />
+    <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
+    <result column="admin_tel" property="adminTel" jdbcType="VARCHAR" />
+    <result column="admin_psw" property="adminPsw" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.UserAdmin" >
+    insert into user_admin (admin_name, admin_tel,
+      admin_psw)
+    values (#{adminName,jdbcType=VARCHAR}, #{adminTel,jdbcType=VARCHAR},
+      #{adminPsw,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.UserAdmin" >
+    update user_admin
+    set admin_name = #{adminName,jdbcType=VARCHAR},
+      admin_tel = #{adminTel,jdbcType=VARCHAR},
+      admin_psw = #{adminPsw,jdbcType=VARCHAR}
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select admin_id, admin_name, admin_tel, admin_psw
+    from user_admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select admin_id, admin_name, admin_tel, admin_psw
+    from user_admin
+  </select>
+</mapper>
