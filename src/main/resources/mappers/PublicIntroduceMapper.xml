@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.PublicIntroduceMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.PublicIntroduce" >
+    <id column="introduce_id" property="introduceId" jdbcType="INTEGER" />
+    <result column="introduce_name" property="introduceName" jdbcType="VARCHAR" />
+    <result column="introduce_phone" property="introducePhone" jdbcType="VARCHAR" />
+    <result column="introduce_imgs" property="introduceImgs" jdbcType="VARCHAR" />
+    <result column="introduce_msg" property="introduceMsg" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public_introduce
+    where introduce_id = #{introduceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.PublicIntroduce" >
+    insert into public_introduce (introduce_id, introduce_name, introduce_phone, 
+      introduce_imgs, introduce_msg)
+    values (#{introduceId,jdbcType=INTEGER}, #{introduceName,jdbcType=VARCHAR}, #{introducePhone,jdbcType=VARCHAR}, 
+      #{introduceImgs,jdbcType=VARCHAR}, #{introduceMsg,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicIntroduce" >
+    update public_introduce
+    set introduce_name = #{introduceName,jdbcType=VARCHAR},
+      introduce_phone = #{introducePhone,jdbcType=VARCHAR},
+      introduce_imgs = #{introduceImgs,jdbcType=VARCHAR},
+      introduce_msg = #{introduceMsg,jdbcType=LONGVARCHAR}
+    where introduce_id = #{introduceId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select introduce_id, introduce_name, introduce_phone, introduce_imgs, introduce_msg
+    from public_introduce
+    where introduce_id = #{introduceId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select introduce_id, introduce_name, introduce_phone, introduce_imgs, introduce_msg
+    from public_introduce
+  </select>
+</mapper>

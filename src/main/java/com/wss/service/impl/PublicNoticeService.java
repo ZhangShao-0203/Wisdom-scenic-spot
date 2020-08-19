@@ -2,7 +2,6 @@ package com.wss.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mysql.cj.protocol.x.Notice;
 import com.wss.mapper.PublicNoticeMapper;
 import com.wss.pojo.PublicNotice;
 import com.wss.service.IPublicNoticeService;

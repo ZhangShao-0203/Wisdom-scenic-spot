@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.PublicPlayMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.PublicPlay" >
+    <id column="play_id" property="playId" jdbcType="INTEGER" />
+    <result column="play_name" property="playName" jdbcType="VARCHAR" />
+    <result column="play_price" property="playPrice" jdbcType="DOUBLE" />
+    <result column="play_state" property="playState" jdbcType="INTEGER" />
+    <result column="staff_id" property="staffId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public_play
+    where play_id = #{playId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.PublicPlay" >
+    insert into public_play (play_id, play_name, play_price, 
+      play_state, staff_id)
+    values (#{playId,jdbcType=INTEGER}, #{playName,jdbcType=VARCHAR}, #{playPrice,jdbcType=DOUBLE}, 
+      #{playState,jdbcType=INTEGER}, #{staffId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicPlay" >
+    update public_play
+    set play_name = #{playName,jdbcType=VARCHAR},
+      play_price = #{playPrice,jdbcType=DOUBLE},
+      play_state = #{playState,jdbcType=INTEGER},
+      staff_id = #{staffId,jdbcType=INTEGER}
+    where play_id = #{playId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select play_id, play_name, play_price, play_state, staff_id
+    from public_play
+    where play_id = #{playId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select play_id, play_name, play_price, play_state, staff_id
+    from public_play
+  </select>
+</mapper>

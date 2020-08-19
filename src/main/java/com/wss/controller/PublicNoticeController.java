@@ -37,7 +37,6 @@ public class PublicNoticeController {
         System.out.println(publicNotice.toString());
         PublicNotice i = publicNoticeService.selectByPrimaryKey(publicNotice.getNoticeId());
         return i;
-//        sout
     }
     @RequestMapping("/list")
     /*

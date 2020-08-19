@@ -20,6 +20,8 @@
         <!--<table tableName="entity_produce"></table>-->
         <!--<table tableName="entity_room"></table>-->
         <!--<table tableName="entity_ticket"></table>-->
+        <!--<table tableName="public_play"></table>-->
+        <!--<table tableName="public_show"></table>-->
         <table tableName=""></table>
     </context>
 </generatorConfiguration>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.PublicShowMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.PublicShow" >
+    <id column="show_id" property="showId" jdbcType="INTEGER" />
+    <result column="show_name" property="showName" jdbcType="VARCHAR" />
+    <result column="show_type" property="showType" jdbcType="VARCHAR" />
+    <result column="show_site" property="showSite" jdbcType="VARCHAR" />
+    <result column="show_time" property="showTime" jdbcType="VARCHAR" />
+    <result column="show_state" property="showState" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public_show
+    where show_id = #{showId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.PublicShow" >
+    insert into public_show (show_id, show_name, show_type, 
+      show_site, show_time, show_state
+      )
+    values (#{showId,jdbcType=INTEGER}, #{showName,jdbcType=VARCHAR}, #{showType,jdbcType=VARCHAR}, 
+      #{showSite,jdbcType=VARCHAR}, #{showTime,jdbcType=VARCHAR}, #{showState,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicShow" >
+    update public_show
+    set show_name = #{showName,jdbcType=VARCHAR},
+      show_type = #{showType,jdbcType=VARCHAR},
+      show_site = #{showSite,jdbcType=VARCHAR},
+      show_time = #{showTime,jdbcType=VARCHAR},
+      show_state = #{showState,jdbcType=VARCHAR}
+    where show_id = #{showId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select show_id, show_name, show_type, show_site, show_time, show_state
+    from public_show
+    where show_id = #{showId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select show_id, show_name, show_type, show_site, show_time, show_state
+    from public_show
+  </select>
+</mapper>

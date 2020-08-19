@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.PublicMapMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.PublicMap" >
+    <id column="map_id" property="mapId" jdbcType="INTEGER" />
+    <result column="map_time" property="mapTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public_map
+    where map_id = #{mapId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.PublicMap" >
+    insert into public_map (map_id, map_time)
+    values (#{mapId,jdbcType=INTEGER}, #{mapTime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicMap" >
+    update public_map
+    set map_time = #{mapTime,jdbcType=VARCHAR}
+    where map_id = #{mapId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select map_id, map_time
+    from public_map
+    where map_id = #{mapId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select map_id, map_time
+    from public_map
+  </select>
+</mapper>
