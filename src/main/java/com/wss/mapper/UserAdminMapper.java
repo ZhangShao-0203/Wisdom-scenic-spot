@@ -8,6 +8,7 @@ public interface UserAdminMapper {
 
     int insert(UserAdmin record);
 
+    //管理员登录
     UserAdmin selectByPrimaryKey(Integer adminId);
 
     List<UserAdmin> selectAll();
