@@ -9,6 +9,16 @@ public class PublicNotice {
 
     private Integer noticeRank;
 
+    private Integer page;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
     public Integer getNoticeId() {
         return noticeId;
     }
@@ -39,5 +49,15 @@ public class PublicNotice {
 
     public void setNoticeRank(Integer noticeRank) {
         this.noticeRank = noticeRank;
+    }
+
+    @Override
+    public String toString() {
+        return "PublicNotice{" +
+                "noticeId=" + noticeId +
+                ", noticeName='" + noticeName + '\'' +
+                ", noticeTime='" + noticeTime + '\'' +
+                ", noticeRank=" + noticeRank +
+                '}';
     }
 }

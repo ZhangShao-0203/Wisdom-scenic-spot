@@ -14,7 +14,8 @@
         <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"></sqlMapGenerator>
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.wss.mapper" targetProject="src/main/java"></javaClientGenerator>
        <!-- <table tableName="public_notice"></table>-->
-        <table tableName="user_admin"></table>
-        <table tableName="user_tourist"></table>
+        <!--<table tableName="user_admin"></table>
+        <table tableName="user_tourist"></table>-->
+        <table tableName=""></table>
     </context>
 </generatorConfiguration>
