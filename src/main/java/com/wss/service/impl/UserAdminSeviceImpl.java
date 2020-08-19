@@ -8,10 +8,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserAdminSeviceImpl implements IUserAdminSevice {
+
     @Autowired
     private UserAdminMapper adminMapper;
     @Override
     public UserAdmin selectByPrimaryKey(Integer adminId) {
         return adminMapper.selectByPrimaryKey(adminId);
     }
+
+
 }
