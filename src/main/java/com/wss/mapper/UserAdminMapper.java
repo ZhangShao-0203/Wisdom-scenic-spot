@@ -1,8 +1,12 @@
 package com.wss.mapper;
 
 import com.wss.pojo.UserAdmin;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Mapper
+@Repository
 public interface UserAdminMapper {
     int deleteByPrimaryKey(Integer adminId);
 
