@@ -56,5 +56,17 @@ public class UserTouristController {
         return "0";
     }
 
+    @RequestMapping("/logout")
+    @ResponseBody
+    public String logout(UserTourist tourist,HttpSession session){
+
+        if(session!=null && session.getAttribute("tourist")!=null){
+            //退出---销毁session
+            session.invalidate();
+            return "1";
+        }
+        return "0";
+    }
+
 
 }

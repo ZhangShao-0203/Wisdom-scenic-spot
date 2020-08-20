@@ -13,9 +13,9 @@
     where introduce_id = #{introduceId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wss.pojo.PublicIntroduce" >
-    insert into public_introduce (introduce_id, introduce_name, introduce_phone, 
+    insert into public_introduce (introduce_name, introduce_phone,
       introduce_imgs, introduce_msg)
-    values (#{introduceId,jdbcType=INTEGER}, #{introduceName,jdbcType=VARCHAR}, #{introducePhone,jdbcType=VARCHAR}, 
+    values (#{introduceName,jdbcType=VARCHAR}, #{introducePhone,jdbcType=VARCHAR},
       #{introduceImgs,jdbcType=VARCHAR}, #{introduceMsg,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicIntroduce" >
