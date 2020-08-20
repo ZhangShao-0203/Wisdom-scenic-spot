@@ -43,19 +43,33 @@
   </select>
 
   <resultMap id="child" type="OrderFoodRecord">
-    <id property="record_id" column="record_id"></id>
-    <result property="record_date" column="record_date"></result>
-    <result property="record_buyer_id" column="record_buyer_id"></result>
-    <result property="record_state" column="record_state"></result>
+    <id property="recordId" column="record_id"></id>
+    <result property="recordDate" column="record_date"></result>
+    <result property="recordBuyerId" column="record_buyer_id"></result>
+    <result property="recordState" column="record_state"></result>
     <collection property="items" ofType="OrderFoodChild">
-      <id property="f_child_id" column="f_child_id"></id>
-      <result property="f_parent_id" column="f_parent_id"></result>
-      <result property="f_food_id" column="f_food_id"></result>
-      <result property="f_food_name" column="f_food_name"></result>
-      <result property="f_food_num" column="f_food_num"></result>
+      <id property="fChildId" column="f_child_id"></id>
+      <result property="fParentId" column="f_parent_id"></result>
+      <result property="fFoodId" column="f_food_id"></result>
+      <result property="fFoodName" column="f_food_name"></result>
+      <result property="fFoodNum" column="f_food_num"></result>
     </collection>
   </resultMap>
   <select id="OrderReview" resultMap="child">
     select r.*,c.* from order_food_record r,order_food_child c where r.record_id=c.f_parent_id
   </select>
+  
+  <insert id="insertRecord" parameterType="OrderFoodRecord">
+<selectKey order="AFTER" keyProperty="recordId" keyColumn="record_id" resultType="int">
+  select LAST_INSERT_ID()
+</selectKey>
+    insert into order_food_record (record_id,record_date,record_buyer_id,record_state) values (#{recordId},#{recordDate},#{recordBuyerId},#{recordState})
+  </insert>
+
+  <insert id="insertChild" parameterType="java.util.List">
+    insert into order_food_child (f_child_id,f_parent_id,f_food_id,f_food_name,f_food_num) values 
+    <foreach collection="list" item="item" separator=",">
+      (#{item.fChildId},#{item.fParentId},#{item.fFoodId},#{item.fFoodName},#{item.fFoodNum})
+    </foreach>
+  </insert>
 </mapper>
