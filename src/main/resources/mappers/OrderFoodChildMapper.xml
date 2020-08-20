@@ -56,6 +56,6 @@
     </collection>
   </resultMap>
   <select id="OrderReview" resultMap="child">
-    select * from order_food_record r,order_food_child c where r.record_id=c.f_parent_id
+    select r.*,c.* from order_food_record r,order_food_child c where r.record_id=c.f_parent_id
   </select>
 </mapper>
