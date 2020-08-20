@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.EmergencyMapper">
+    <!--查询总条数-->
+    <select id="getCountOfAll" resultType="integer">
+        select count(*) from emergency
+    </select>
+
+    <!--倒序查看所有紧急情况(size:每页展示多少条)-->
+    <select id="queryAllEmergencies" resultType="Emergency">
+        select * from emergency order by emergency_time desc
+    </select>
+
+    <!--倒序查询有结果记录的紧急情况-->
+    <select id="queryEmergenciesWithResult" resultType="Emergency">
+        select * from emergency where result_desc != null order by emergency_time desc
+    </select>
+
+    <select id="queryEmergencyById" parameterType="integer" resultType="Emergency">
+        select * from emergency where emergency_id = #{emergencyId}
+    </select>
+
+    <!--查询单个紧急情况-->
+    <select id="queryEmergency" parameterType="integer">
+        select * from emergency where emergency_id=#{emergencyId}
+    </select>
+    <!--添加紧急情况-->
+    <insert id="addEmergency" parameterType="Emergency">
+        insert into emergency values(null,#{mapId},#{emergencyTime},#{userId},#{assistantId},#{resultDesc},#{resultTime})
+    </insert>
+
+    <!--删除紧急情况-->
+    <delete id="deleteEmergency" parameterType="integer">
+        delete from emergency where emergency_id = #{emergencyId}
+    </delete>
+
+    <!--更新紧急情况-->
+    <update id="updateEmeregency" parameterType="Emergency">
+        update
+          emergency
+        set
+          map_id=#{mapId},
+          emergency_time=#{emergencyTime},
+          user_id=#{userId},
+          assistant_id=#{assitantId},
+          result_desc=#{resultDesc},
+          result_time=#{resultTime}
+    </update>
+</mapper>

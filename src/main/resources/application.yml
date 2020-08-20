@@ -11,6 +11,7 @@ spring:
   thymeleaf:
     prefix: classpath:/tamplates/
     suffix: .html
+    cache: false
   servlet:
     multipart:
     #SpringBoot单个上传文件的大小
