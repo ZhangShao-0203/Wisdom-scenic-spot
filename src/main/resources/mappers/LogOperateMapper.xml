@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wss.mapper.LogOperateMapper">
+    <insert id="insertSyslog" parameterType="LogOperate">
+        insert into log_operate(operate_id,operate_name,operate_operation,operate_method,operate_params,operate_ip,operate_carateDate) values(#{operateId},#{operateName},#{operateOperation},#{operateMethod},#{operateParams},#{operateIp},#{operateCarateDate})
+    </insert>
+
+    <select id="querylogOperate" parameterType="LogOperate" resultType="LogOperate">
+        select * from log_operate
+    </select>
+</mapper>

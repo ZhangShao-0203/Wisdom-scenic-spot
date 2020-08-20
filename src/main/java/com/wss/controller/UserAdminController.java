@@ -1,5 +1,6 @@
 package com.wss.controller;
 
+import com.wss.log.MyLog;
 import com.wss.pojo.UserAdmin;
 import com.wss.pojo.UserTourist;
 import com.wss.service.impl.UserAdminSeviceImpl;
@@ -18,6 +19,8 @@ public class UserAdminController {
     private UserAdminSeviceImpl adminSevice;
 
     //管理员登录
+    //管理员登录
+    @MyLog(value = "登录")  //这里添加了AOP的自定义注解
     @RequestMapping("/login")
     @ResponseBody
     public String login(int adminId,HttpSession session,UserAdmin admin){
