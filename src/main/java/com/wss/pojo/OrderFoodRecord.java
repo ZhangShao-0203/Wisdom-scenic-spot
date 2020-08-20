@@ -3,6 +3,7 @@ package com.wss.pojo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,5 +14,9 @@ public class OrderFoodRecord {
     private Date recordDate;
     private int recordBuyerId;
     private String recordState;
-    private List<OrderFoodChild> items;
+    private List<OrderFoodChild> items=new ArrayList<OrderFoodChild>();
+
+    public void addToList(OrderFoodChild orderFoodChild){
+        this.items.add(orderFoodChild);
+    }
 }

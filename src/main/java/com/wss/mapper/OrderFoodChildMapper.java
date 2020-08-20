@@ -21,4 +21,10 @@ public interface OrderFoodChildMapper {
     int updateByPrimaryKey(OrderFoodChild record);
 
     List<OrderFoodRecord> OrderReview();
+    //插入第一表
+    int insertInfo();
+    //插入第二表
+    int insertRecord(OrderFoodRecord orderFoodRecord);
+    //插入第三表
+    int insertChild(List<OrderFoodChild> children);
 }
