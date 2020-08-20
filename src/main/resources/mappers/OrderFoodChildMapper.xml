@@ -8,7 +8,7 @@
     <result column="f_food_name" property="fFoodName" jdbcType="VARCHAR" />
     <result column="f_food_num" property="fFoodNum" jdbcType="INTEGER" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.wss.pojo.OrderFoodRecord" >
+  <resultMap id="RecordResultMap" type="com.wss.pojo.OrderFoodRecord" >
     <id column="record_id" property="recordId" jdbcType="INTEGER" />
     <result column="record_date" property="recordDate" jdbcType="DATE" />
     <result column="record_buyer_id" property="recordBuyerId" jdbcType="INTEGER" />
