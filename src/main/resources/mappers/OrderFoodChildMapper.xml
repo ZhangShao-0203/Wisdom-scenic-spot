@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wss.mapper.OrderFoodChildMapper" >
+  <resultMap id="BaseResultMap" type="com.wss.pojo.OrderFoodChild" >
+    <id column="f_child_id" property="fChildId" jdbcType="INTEGER" />
+    <result column="f_parent_id" property="fParentId" jdbcType="INTEGER" />
+    <result column="f_food_id" property="fFoodId" jdbcType="INTEGER" />
+    <result column="f_food_name" property="fFoodName" jdbcType="VARCHAR" />
+    <result column="f_food_num" property="fFoodNum" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.wss.pojo.OrderFoodRecord" >
+    <id column="record_id" property="recordId" jdbcType="INTEGER" />
+    <result column="record_date" property="recordDate" jdbcType="DATE" />
+    <result column="record_buyer_id" property="recordBuyerId" jdbcType="INTEGER" />
+    <result column="record_state" property="recordState" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_food_child
+    where f_child_id = #{fChildId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wss.pojo.OrderFoodChild" >
+    insert into order_food_child (f_child_id, f_parent_id, f_food_id, 
+      f_food_name, f_food_num)
+    values (#{fChildId,jdbcType=INTEGER}, #{fParentId,jdbcType=INTEGER}, #{fFoodId,jdbcType=INTEGER}, 
+      #{fFoodName,jdbcType=VARCHAR}, #{fFoodNum,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wss.pojo.OrderFoodChild" >
+    update order_food_child
+    set f_parent_id = #{fParentId,jdbcType=INTEGER},
+      f_food_id = #{fFoodId,jdbcType=INTEGER},
+      f_food_name = #{fFoodName,jdbcType=VARCHAR},
+      f_food_num = #{fFoodNum,jdbcType=INTEGER}
+    where f_child_id = #{fChildId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select f_child_id, f_parent_id, f_food_id, f_food_name, f_food_num
+    from order_food_child
+    where f_child_id = #{fChildId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select f_child_id, f_parent_id, f_food_id, f_food_name, f_food_num
+    from order_food_child
+  </select>
+
+  <resultMap id="child" type="OrderFoodRecord">
+    <id property="record_id" column="record_id"></id>
+    <result property="record_date" column="record_date"></result>
+    <result property="record_buyer_id" column="record_buyer_id"></result>
+    <result property="record_state" column="record_state"></result>
+    <collection property="items" ofType="OrderFoodChild">
+      <id property="f_child_id" column="f_child_id"></id>
+      <result property="f_parent_id" column="f_parent_id"></result>
+      <result property="f_food_id" column="f_food_id"></result>
+      <result property="f_food_name" column="f_food_name"></result>
+      <result property="f_food_num" column="f_food_num"></result>
+    </collection>
+  </resultMap>
+  <select id="OrderReview" resultMap="child">
+    select * from order_food_record r,order_food_child c where r.record_id=c.f_parent_id
+  </select>
+</mapper>
