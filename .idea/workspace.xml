@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="691f0f7d-908a-4d81-b69e-bbfc7a79a717" name="Default Changelist" comment="Zhang">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_6.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,28 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublicPlayMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/PublicPlayMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="48" />
-              <folding>
-                <marker date="1597889785347" expanded="true" signature="788:858" ph="delete from " />
-                <marker date="1597889785347" expanded="true" signature="939:1193" ph="insert into public_play... " />
-                <marker date="1597889785347" expanded="true" signature="1286:1594" ph="update publi... " />
-                <marker date="1597889785347" expanded="true" signature="1707:1845" ph="select play_... public_play" />
-                <marker date="1597889785347" expanded="true" signature="1915:2188" ph="select play_... public_play" />
-                <marker date="1597889785347" expanded="true" signature="1915:2224" ph="select play_... public_play" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PublicShowController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PublicShowController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/controller/PublicShowController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+              <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#update#0;class#PublicShowController#0" expanded="false" />
@@ -102,18 +85,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublicMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/pojo/PublicMap.java">
+      <file leaf-file-name="OrderTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/Test/OrderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-              <folding>
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#256#257#0" expanded="true" />
-                <element signature="e#290#291#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SqlTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -213,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wss/service/impl/UserAdminSeviceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/UserAdminMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/tamplates/login.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wss/mapper/ProduceCartMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wss/mapper/ProduceMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wss/mapper/InfoEzstopMapper.java" />
@@ -254,6 +240,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wss/pojo/PublicMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wss/controller/PublicMapController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/PublicMapMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java" />
       </list>
     </option>
   </component>
@@ -402,6 +389,15 @@
               <item name="Wisdom-scenic-spot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wss" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wisdom-scenic-spot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wisdom-scenic-spot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -435,6 +431,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wisdom-scenic-spot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wisdom-scenic-spot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -603,7 +607,7 @@
       <workItem from="1597819233962" duration="225000" />
       <workItem from="1597819955012" duration="711000" />
       <workItem from="1597821656100" duration="11931000" />
-      <workItem from="1597884868859" duration="7537000" />
+      <workItem from="1597884868859" duration="8204000" />
     </task>
     <task id="LOCAL-00001" summary="weijinfeng">
       <created>1597804788220</created>
@@ -710,11 +714,25 @@
       <option name="project" value="LOCAL" />
       <updated>1597892369283</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Zhang">
+      <created>1597892552606</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1597892552606</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Zhang">
+      <created>1597892656486</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1597892656486</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34132000" />
+    <option name="totallyTimeSpent" value="34799000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -771,8 +789,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/controller/ProduceCartController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/service/impl/ProduceCartServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/mapper/UserTouristMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1257,11 +1273,27 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/controller/PublicShowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#update#0;class#PublicShowController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/Test/OrderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wss/Test/SqlTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
