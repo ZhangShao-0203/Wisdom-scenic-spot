@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ProduceCart {
-    private int ProduceCartId;
+    private int produceCartId;
     private Produce produce;
     private int prQuantity;
     private double subTotal;

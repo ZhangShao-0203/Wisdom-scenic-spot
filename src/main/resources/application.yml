@@ -23,5 +23,6 @@ mybatis:
 #显示sql语句
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
 #加载mapper.xml
   mapper-locations: classpath:/mappers/*.xml

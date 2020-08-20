@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wss.mapper.ProduceCartMapper">
+
+    <insert id="insert">
+        insert entity_producecart values(null,#{produceId},#{prQuantity},#{subTotal},#{touristId})
+    </insert>
+
+    <resultMap id="map1" type="produceCart">
+
+    </resultMap>
+
+<!--    <select id="selByIds" resultMap="map1">
+        select entity_producecart.* from entity_producecart c,entity_produce p where c.produce_id=p.produce_id and c.produceCart_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>-->
+
+</mapper>
