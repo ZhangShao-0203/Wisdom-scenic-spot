@@ -11,6 +11,16 @@ public class PublicIntroduce {
 
     private String introduceMsg;
 
+    private Integer Page;
+
+    public Integer getPage() {
+        return Page;
+    }
+
+    public void setPage(Integer page) {
+        Page = page;
+    }
+
     public Integer getIntroduceId() {
         return introduceId;
     }

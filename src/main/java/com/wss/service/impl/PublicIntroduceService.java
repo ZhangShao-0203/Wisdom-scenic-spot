@@ -1,7 +1,10 @@
 package com.wss.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wss.mapper.PublicIntroduceMapper;
 import com.wss.pojo.PublicIntroduce;
+import com.wss.pojo.PublicNotice;
 import com.wss.service.IPublicIntroduceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +31,14 @@ public class PublicIntroduceService implements IPublicIntroduceService {
     }
 
     @Override
-    public List<PublicIntroduce> selectAll() {
-        return publicIntroduceMapper.selectAll();
+    public List<PublicIntroduce> selectAll(int start,int size,String seek) {
+        PageHelper.startPage(start,size,"introduce_id asc");
+        List<PublicIntroduce> publicIntroduces = publicIntroduceMapper.selectAll(seek);
+        PageInfo pageInfo=new PageInfo(publicIntroduces);
+        for (PublicIntroduce a:publicIntroduces){
+            a.setPage(pageInfo.getPages());
+        }
+        return publicIntroduces;
     }
 
     @Override

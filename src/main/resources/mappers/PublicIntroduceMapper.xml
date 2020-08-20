@@ -33,6 +33,6 @@
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select introduce_id, introduce_name, introduce_phone, introduce_imgs, introduce_msg
-    from public_introduce
+    from public_introduce WHERE introduce_id like '%'||#{seek}||'%' or introduce_name like '%'||#{seek}||'%' or introduce_phone like '%'||#{seek}||'%'or introduce_imgs like '%'||#{seek}||'%' or introduce_msg like '%'||#{seek}||'%'
   </select>
 </mapper>

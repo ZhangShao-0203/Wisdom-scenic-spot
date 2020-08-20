@@ -13,6 +13,25 @@ public class PublicShow {
 
     private String showState;
 
+    private String showImgs;
+
+    private Integer Page;
+
+    public String getShowImgs() {
+        return showImgs;
+    }
+
+    public void setShowImgs(String showImgs) {
+        this.showImgs = showImgs;
+    }
+
+    public Integer getPage() {
+        return Page;
+    }
+
+    public void setPage(Integer page) {
+        Page = page;
+    }
     public Integer getShowId() {
         return showId;
     }

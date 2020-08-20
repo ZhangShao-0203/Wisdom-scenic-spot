@@ -1,8 +1,12 @@
 package com.wss.mapper;
 
 import com.wss.pojo.PublicMap;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Controller;
 
+import java.util.List;
+@Mapper
+@Controller
 public interface PublicMapMapper {
     int deleteByPrimaryKey(Integer mapId);
 
@@ -10,7 +14,7 @@ public interface PublicMapMapper {
 
     PublicMap selectByPrimaryKey(Integer mapId);
 
-    List<PublicMap> selectAll();
+    List<PublicMap> selectAll(String seek);
 
     int updateByPrimaryKey(PublicMap record);
 }

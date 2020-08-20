@@ -6,6 +6,7 @@
     <result column="play_name" property="playName" jdbcType="VARCHAR" />
     <result column="play_price" property="playPrice" jdbcType="DOUBLE" />
     <result column="play_state" property="playState" jdbcType="INTEGER" />
+    <result column="play_imgs" property="playImgs" jdbcType="VARCHAR" />
     <result column="staff_id" property="staffId" jdbcType="INTEGER" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -13,9 +14,9 @@
     where play_id = #{playId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wss.pojo.PublicPlay" >
-    insert into public_play (play_id, play_name, play_price, 
+    insert into public_play (play_imgs, play_name, play_price,
       play_state, staff_id)
-    values (#{playId,jdbcType=INTEGER}, #{playName,jdbcType=VARCHAR}, #{playPrice,jdbcType=DOUBLE}, 
+    values (#{playImgs,jdbcType=VARCHAR}, #{playName,jdbcType=VARCHAR}, #{playPrice,jdbcType=DOUBLE},
       #{playState,jdbcType=INTEGER}, #{staffId,jdbcType=INTEGER})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicPlay" >
@@ -23,16 +24,17 @@
     set play_name = #{playName,jdbcType=VARCHAR},
       play_price = #{playPrice,jdbcType=DOUBLE},
       play_state = #{playState,jdbcType=INTEGER},
+      play_imgs = #{playState,jdbcType=VARCHAR},
       staff_id = #{staffId,jdbcType=INTEGER}
     where play_id = #{playId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select play_id, play_name, play_price, play_state, staff_id
+    select play_id, play_name, play_price, play_state, play_imgs, staff_id
     from public_play
     where play_id = #{playId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select play_id, play_name, play_price, play_state, staff_id
-    from public_play
+    select play_id, play_name, play_price, play_state, play_imgs, staff_id
+    from public_play WHERE play_id like '%'||#{seek}||'%' or play_name like '%'||#{seek}||'%' or play_price like '%'||#{seek}||'%' or play_state like '%'||#{seek}||'%' or staff_id like '%'||#{seek}||'%' or play_imgs like '%'||#{seek}||'%'
   </select>
 </mapper>

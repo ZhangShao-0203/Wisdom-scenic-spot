@@ -49,9 +49,52 @@ public class PublicIntroduceController {
         }
         return 1;
     }
+    /*
+        start 第几页
+        size  一页几条数据
+        seek  模糊搜索
+    */
     @RequestMapping("/list")
-    public List<PublicIntroduce> list(){
-        List<PublicIntroduce> publicIntroduces = iPublicIntroduceService.selectAll();
+    public List<PublicIntroduce> list(PublicIntroduce publicIntroduce,@RequestParam(value = "start", defaultValue = "1")int start, @RequestParam(value = "size", defaultValue = "2")int size, @RequestParam(value = "seek")String seek){
+        List<PublicIntroduce> publicIntroduces = iPublicIntroduceService.selectAll(start,size,seek);
         return publicIntroduces;
+    }
+    @RequestMapping("/delete")
+    public int delete(PublicIntroduce publicIntroduce){
+        int i = iPublicIntroduceService.deleteByPrimaryKey(publicIntroduce.getIntroduceId());
+        return i;
+    }
+    @RequestMapping("/get")
+    public PublicIntroduce get(PublicIntroduce publicIntroduce){
+        PublicIntroduce publicIntroduce1 = iPublicIntroduceService.selectByPrimaryKey(publicIntroduce.getIntroduceId());
+        return publicIntroduce1;
+    }
+    @RequestMapping("/update")
+    public int update(PublicIntroduce publicIntroduce,HttpServletRequest request){
+        String readPath="";
+        if(request instanceof MultipartHttpServletRequest){
+            MultipartHttpServletRequest multipartHttpServletRequest= (MultipartHttpServletRequest) request;
+            List<MultipartFile> files=multipartHttpServletRequest.getFiles("file");
+            Iterator<MultipartFile> iterator = files.iterator();
+            while (iterator.hasNext()){
+                MultipartFile file = iterator.next();
+                if (file!=null){
+                    String filename=System.currentTimeMillis()+file.getOriginalFilename();
+                    String destFileName=request.getServletContext().getRealPath("")+"test"+File.separator+filename;
+                    File destFile = new File(destFileName);
+                    destFile.getParentFile().mkdirs();
+                    try {
+                        file.transferTo(destFile);
+                        readPath+=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/test/"+filename+";";
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+            publicIntroduce.setIntroduceImgs(readPath);
+            int i = iPublicIntroduceService.updateByPrimaryKey(publicIntroduce);
+            return i;
+        }
+        return 1;
     }
 }

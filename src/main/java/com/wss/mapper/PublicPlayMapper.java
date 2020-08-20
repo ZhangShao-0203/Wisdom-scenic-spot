@@ -1,8 +1,12 @@
 package com.wss.mapper;
 
 import com.wss.pojo.PublicPlay;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Controller;
 
+import java.util.List;
+@Mapper
+@Controller
 public interface PublicPlayMapper {
     int deleteByPrimaryKey(Integer playId);
 
@@ -10,7 +14,7 @@ public interface PublicPlayMapper {
 
     PublicPlay selectByPrimaryKey(Integer playId);
 
-    List<PublicPlay> selectAll();
+    List<PublicPlay> selectAll(String seek);
 
     int updateByPrimaryKey(PublicPlay record);
 }

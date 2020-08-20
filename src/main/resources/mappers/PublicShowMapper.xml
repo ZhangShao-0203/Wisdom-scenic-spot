@@ -8,17 +8,18 @@
     <result column="show_site" property="showSite" jdbcType="VARCHAR" />
     <result column="show_time" property="showTime" jdbcType="VARCHAR" />
     <result column="show_state" property="showState" jdbcType="VARCHAR" />
+    <result column="show_imgs" property="showImgs" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from public_show
     where show_id = #{showId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wss.pojo.PublicShow" >
-    insert into public_show (show_id, show_name, show_type, 
-      show_site, show_time, show_state
+    insert into public_show (show_name, show_type,
+      show_site, show_time, show_state, show_imgs
       )
-    values (#{showId,jdbcType=INTEGER}, #{showName,jdbcType=VARCHAR}, #{showType,jdbcType=VARCHAR}, 
-      #{showSite,jdbcType=VARCHAR}, #{showTime,jdbcType=VARCHAR}, #{showState,jdbcType=VARCHAR}
+    values (#{showName,jdbcType=VARCHAR}, #{showType,jdbcType=VARCHAR},
+      #{showSite,jdbcType=VARCHAR}, #{showTime,jdbcType=VARCHAR}, #{showState,jdbcType=VARCHAR}, #{showImgs,jdbcType=VARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicShow" >
@@ -28,15 +29,16 @@
       show_site = #{showSite,jdbcType=VARCHAR},
       show_time = #{showTime,jdbcType=VARCHAR},
       show_state = #{showState,jdbcType=VARCHAR}
+      show_imgs = #{showImgs,jdbcType=VARCHAR}
     where show_id = #{showId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select show_id, show_name, show_type, show_site, show_time, show_state
+    select show_id, show_name, show_type, show_site, show_time, show_state, show_imgs
     from public_show
     where show_id = #{showId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select show_id, show_name, show_type, show_site, show_time, show_state
-    from public_show
+    select show_id, show_name, show_type, show_site, show_time, show_state, show_imgs
+    from public_show WHERE show_id like '%'||#{seek}||'%' or show_name like '%'||#{seek}||'%' or show_type like '%'||#{seek}||'%' or show_site like '%'||#{seek}||'%'  or show_time like '%'||#{seek}||'%' or show_state like '%'||#{seek}||'%' or show_imgs like '%'||#{seek}||'%'
   </select>
 </mapper>

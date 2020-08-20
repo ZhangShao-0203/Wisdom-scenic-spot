@@ -4,27 +4,29 @@
   <resultMap id="BaseResultMap" type="com.wss.pojo.PublicMap" >
     <id column="map_id" property="mapId" jdbcType="INTEGER" />
     <result column="map_time" property="mapTime" jdbcType="VARCHAR" />
+    <result column="map_xy" property="mapXy" jdbcType="VARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from public_map
     where map_id = #{mapId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wss.pojo.PublicMap" >
-    insert into public_map (map_id, map_time)
-    values (#{mapId,jdbcType=INTEGER}, #{mapTime,jdbcType=VARCHAR})
+    insert into public_map (map_time, map_xy)
+    values (#{mapTime,jdbcType=VARCHAR}, #{mapXy,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.wss.pojo.PublicMap" >
     update public_map
-    set map_time = #{mapTime,jdbcType=VARCHAR}
+    set map_time = #{mapTime,jdbcType=VARCHAR},
+        map_xy = #{mapXy,jdbcType=VARCHAR},
     where map_id = #{mapId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select map_id, map_time
+    select map_id, map_time, map_xy
     from public_map
     where map_id = #{mapId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select map_id, map_time
-    from public_map
+    select map_id, map_time, map_xy
+    from public_map WHERE map_id like '%'||#{seek}||'%' or map_time like '%'||#{seek}||'%'  or map_xy like '%'||#{seek}||'%'
   </select>
 </mapper>

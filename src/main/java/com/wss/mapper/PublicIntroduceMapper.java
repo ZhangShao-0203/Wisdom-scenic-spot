@@ -15,7 +15,7 @@ public interface PublicIntroduceMapper {
 //    根据id查询
     PublicIntroduce selectByPrimaryKey(Integer introduceId);
 //    查询所有,分页,条件查询,模糊搜索
-    List<PublicIntroduce> selectAll();
+    List<PublicIntroduce> selectAll(String seek);
 //    根据id更改
     int updateByPrimaryKey(PublicIntroduce record);
 }

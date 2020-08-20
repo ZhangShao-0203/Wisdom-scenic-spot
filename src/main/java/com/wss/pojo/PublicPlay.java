@@ -8,9 +8,27 @@ public class PublicPlay {
     private Double playPrice;
 
     private Integer playState;
+    private String playImgs;
 
     private Integer staffId;
 
+    private Integer Page;
+
+    public String getPlayImgs() {
+        return playImgs;
+    }
+
+    public void setPlayImgs(String playImgs) {
+        this.playImgs = playImgs;
+    }
+
+    public Integer getPage() {
+        return Page;
+    }
+
+    public void setPage(Integer page) {
+        Page = page;
+    }
     public Integer getPlayId() {
         return playId;
     }
