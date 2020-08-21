@@ -59,11 +59,11 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.8.13</version>
     </dependency>
-    <!--Thymeleaf模块引擎-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
+      <!--Thymeleaf模块引擎-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      </dependency>
     <!--构造方法插件-->
     <dependency>
       <groupId>org.projectlombok</groupId>

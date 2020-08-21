@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.wss.LogUtil.HttpContextUtils;
 import com.wss.LogUtil.IPUtils;
 import com.wss.pojo.LogOperate;
+import com.wss.pojo.UserAdmin;
 import com.wss.service.impl.LogSysLogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -88,8 +89,17 @@ public class SysLogAspect {
         sysLog.setOperateCarateDate(new Date());
         //获取用户名
         HttpServletRequest request1 = HttpContextUtils.getHttpServletRequest();
-        Object admin = request1.getSession().getAttribute("admin");
-        sysLog.setOperateName(admin.toString());
+        UserAdmin admin2 = (UserAdmin)request1.getSession().getAttribute("admin");
+        Integer adminId = admin2.getAdminId();
+        UserAdmin admin=new UserAdmin();
+        try {
+            UserAdmin admin1 = logSysLogService.queryAdmin(adminId);
+            System.out.println("admin1::::"+admin1);
+            sysLog.setOperateName(admin1.getAdminName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         //获取用户ip地址
         HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
         sysLog.setOperateIp(IPUtils.getIpAddr(request));

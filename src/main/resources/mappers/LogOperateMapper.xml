@@ -9,4 +9,8 @@
     <select id="querylogOperate" parameterType="LogOperate" resultType="LogOperate">
         select * from log_operate
     </select>
+
+    <select id="queryAdmin" parameterType="UserAdmin" resultType="UserAdmin">
+        select * from user_admin where admin_id=#{adminId}
+    </select>
 </mapper>

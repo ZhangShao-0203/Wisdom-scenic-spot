@@ -1,6 +1,7 @@
 package com.wss.service;
 
 import com.wss.pojo.LogOperate;
+import com.wss.pojo.UserAdmin;
 
 public interface ILogSysLogService {
     /*添加*/
@@ -8,4 +9,7 @@ public interface ILogSysLogService {
 
     /*查询日志*/
     public LogOperate querylogOperate(LogOperate logOperate) throws Exception;
+
+    /*查询管理员*/
+    public UserAdmin queryAdmin(int adminId) throws Exception;
 }
