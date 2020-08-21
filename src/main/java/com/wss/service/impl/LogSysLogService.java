@@ -25,4 +25,9 @@ public class LogSysLogService implements ILogSysLogService {
     public UserAdmin queryAdmin(int adminId) throws Exception {
         return logSysLogMapper.queryAdmin(adminId);
     }
+
+    @Override
+    public int deleteLogOperate(LogOperate logOperate) throws Exception {
+        return logSysLogMapper.deleteLogOperate(logOperate);
+    }
 }

@@ -12,4 +12,7 @@ public interface ILogSysLogService {
 
     /*查询管理员*/
     public UserAdmin queryAdmin(int adminId) throws Exception;
+
+    /*删除日志*/
+    public int deleteLogOperate(LogOperate logOperate) throws Exception;
 }

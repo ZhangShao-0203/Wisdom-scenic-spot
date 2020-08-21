@@ -13,4 +13,8 @@
     <select id="queryAdmin" parameterType="UserAdmin" resultType="UserAdmin">
         select * from user_admin where admin_id=#{adminId}
     </select>
+
+    <delete id="deleteLogOperate" parameterType="LogOperate">
+        delete from log_operate
+    </delete>
 </mapper>

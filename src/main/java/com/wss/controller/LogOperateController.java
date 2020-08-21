@@ -21,4 +21,15 @@ public class LogOperateController {
         }
         return mav;
     }
+
+    @RequestMapping("/delLogOperate")
+    public ModelAndView delLogOperate(ModelAndView mav,LogOperate logOperate){
+        try {
+            int i = logSysLogService.deleteLogOperate(logOperate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mav;
+    }
 }
